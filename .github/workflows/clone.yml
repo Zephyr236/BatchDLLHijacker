@@ -1,0 +1,28 @@
+name: clone scan
+
+on:
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+
+        
+    - name: start
+      run: |
+        python main.py
+        zip -r ../result.zip ./download/
+
+
+    - name: Upload the result file as an artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: result-file
+        path: |
+          targets.txt
+          result.zip
