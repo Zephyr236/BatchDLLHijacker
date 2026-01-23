@@ -18,7 +18,7 @@ jobs:
         PYTHONUNBUFFERED: 1
       run: |
         python main.py
-        zip -r ../result.zip ./download/
+        zip -r ./result.zip ./download/
 
 
     - name: Upload the result file as an artifact
