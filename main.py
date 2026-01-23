@@ -122,10 +122,10 @@ with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
         # get_download_link(i)
         executor.submit(get_download_link,i)
 
-with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-    for i in download_link:
-        # get_download_link_direct(i)
-        executor.submit(get_download_link_direct,i)
+# with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+#     for i in download_link:
+#         # get_download_link_direct(i)
+#         executor.submit(get_download_link_direct,i)
 
 
 with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
