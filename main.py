@@ -97,7 +97,8 @@ def get_download_link(url):
     uri=HREF_PATTERN.findall(matches[0])[0][6:-1]
     uri=ht.unescape(uri)
     print("https://www.snapfiles.com"+uri)
-    download_link.append("https://www.snapfiles.com"+uri)
+    if "https://www.snapfiles.com"+uri not in download_link:
+        download_link.append("https://www.snapfiles.com"+uri)
 
 
 def get_download_link_direct(url):
@@ -120,6 +121,17 @@ with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
     for i in download_page_url:
         # get_download_link(i)
         executor.submit(get_download_link,i)
+
+with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+    for i in download_link:
+        # get_download_link_direct(i)
+        executor.submit(get_download_link_direct,i)
+
+
+with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+    for i in range(0,1000):
+        # get_download_link("https://www.snapfiles.com/php/surpriseme.php")
+        executor.submit(get_download_link,"https://www.snapfiles.com/php/surpriseme.php")
 
 with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
     for i in download_link:
