@@ -113,25 +113,25 @@ def get_download_link_direct(url):
 page_index=['']
 [page_index.append(str(i)) for i in range(2,29)]
 with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-    for i in page_index:
+    for i in page_index[:1]:
         # get_download_page(i)
         executor.submit(get_download_page,i)
 
 with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-    for i in download_page_url:
+    for i in download_page_url[:1]:
         # get_download_link(i)
         executor.submit(get_download_link,i)
 
-with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-    for i in download_link:
-        # get_download_link_direct(i)
-        executor.submit(get_download_link_direct,i)
+# with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+#     for i in download_link:
+#         # get_download_link_direct(i)
+#         executor.submit(get_download_link_direct,i)
 
 
-with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-    for i in range(0,1000):
-        # get_download_link("https://www.snapfiles.com/php/surpriseme.php")
-        executor.submit(get_download_link,"https://www.snapfiles.com/php/surpriseme.php")
+# with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+#     for i in range(0,1000):
+#         # get_download_link("https://www.snapfiles.com/php/surpriseme.php")
+#         executor.submit(get_download_link,"https://www.snapfiles.com/php/surpriseme.php")
 
 with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
     for i in download_link:
