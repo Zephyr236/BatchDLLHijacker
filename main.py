@@ -105,8 +105,9 @@ def get_download_link_direct(url):
     html=response.text
     matches=DOWNLOAD_LINK_PATTERN.findall(html)
     url=HREF_PATTERN.findall(matches[0])[0][6:-1]
-    print(url)
-    download_file(url,"download")
+    if not url.endswith(".exe"):
+        print(url)
+        download_file(url,"download")
 
 page_index=['']
 [page_index.append(str(i)) for i in range(2,29)]
