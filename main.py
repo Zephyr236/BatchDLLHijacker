@@ -129,7 +129,7 @@ with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
 
 
 with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-    for i in range(0,5000):
+    for i in range(0,10000):
         # get_download_link("https://www.snapfiles.com/php/surpriseme.php")
         executor.submit(get_download_link,"https://www.snapfiles.com/php/surpriseme.php")
 
