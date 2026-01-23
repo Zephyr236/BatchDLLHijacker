@@ -26,5 +26,4 @@ jobs:
       with:
         name: result-file
         path: |
-          targets.txt
           result.zip
