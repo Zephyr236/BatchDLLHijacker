@@ -1,5 +1,8 @@
 import zipfile
 import os
+from concurrent.futures import ThreadPoolExecutor
+MAX_WORKERS = min(32, os.cpu_count() * 4 + 1)
+
 def unzip(file):
     try:
         with zipfile.ZipFile(file, 'r') as zip_ref:
@@ -11,7 +14,9 @@ def unzip(file):
 
 folder='download'
 with os.scandir(folder) as entries:
-    for i in entries:
-        if i.is_file():
-            # print(i.path)
-            unzip(i.path)
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        for i in entries:
+            if i.is_file():
+                # print(i.path)
+                # unzip(i.path)
+                executor.submit(unzip,i.path)
