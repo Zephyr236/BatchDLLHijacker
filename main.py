@@ -112,15 +112,15 @@ def get_download_link_direct(url):
 
 page_index=['']
 [page_index.append(str(i)) for i in range(2,29)]
-# with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-#     for i in page_index:
-#         # get_download_page(i)
-#         executor.submit(get_download_page,i)
+with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+    for i in page_index:
+        # get_download_page(i)
+        executor.submit(get_download_page,i)
 
-# with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-#     for i in download_page_url:
-#         # get_download_link(i)
-#         executor.submit(get_download_link,i)
+with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+    for i in download_page_url:
+        # get_download_link(i)
+        executor.submit(get_download_link,i)
 
 # with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
 #     for i in download_link:
