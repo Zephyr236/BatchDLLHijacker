@@ -25,7 +25,7 @@ jobs:
         pip install requests
         python main.py
         python unzip.py
-        ZeroEye.exe -s -nc -p download
+        .\ZeroEye.exe -s -nc -p download
         python zip.py
 
 
