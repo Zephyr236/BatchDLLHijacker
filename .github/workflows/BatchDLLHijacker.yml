@@ -1,7 +1,9 @@
 name: BatchDLLHijacker
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '0 */20 * * *'  # 每20小时执行一次
+  workflow_dispatch:  # 允许手动触发
 
 jobs:
   scan:
