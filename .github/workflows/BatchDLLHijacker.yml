@@ -1,4 +1,4 @@
-name: clone scan
+name: BatchDLLHijacker
 
 on:
   workflow_dispatch:
@@ -35,3 +35,4 @@ jobs:
         name: result-file
         path: |
           Eyebin.zip
+        retention-days: 3
